@@ -4,7 +4,7 @@
 
 ### II. Files and Users
 
-**1. Fichiers**
+**1. Fichiers**  
 
 *A. Find Me*
 
@@ -80,7 +80,7 @@ ls: cannot open directory '/home/crea': Permission denied
 ```
 
 ### III. Programmes et paquets
-**1. Programmes et processus**
+**1. Programmes et processus**  
 *A. Run then kill*
 
 1/
@@ -262,35 +262,4 @@ dawa/folder36/40/file43
 -
 crea@tpos:~/Downloads$ find dawa/ -type f | xargs grep -L '[^7]'
 dawa/folder43/38/file41
-``
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
