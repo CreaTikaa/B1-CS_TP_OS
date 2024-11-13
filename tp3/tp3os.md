@@ -373,7 +373,7 @@ Nov 13 08:50:31 tpos systemd[1]: Started ssh.service - OpenBSD Secure Shell ser>
 Nov 13 09:24:56 tpos sshd[2175]: Accepted password for crea from 192.168.56.3 p>
 Nov 13 09:24:56 tpos sshd[2175]: pam_unix(sshd:session): session opened for use>
 Nov 13 09:24:56 tpos sshd[2175]: pam_env(sshd:session): deprecated reading of u>
-``
+```
 **3. Modification du service**
 *A. Configuration du service SSH*
 1/
@@ -416,7 +416,8 @@ PermitEmptyPasswords no
 PermitRootLogin no
 AllowUsers crea
 ```
-Nécessite plus de configuration : ```
+Nécessite plus de configuration : 
+```
 PasswordAuthentication no
 PublicKeyAuthentication yes
 ```
