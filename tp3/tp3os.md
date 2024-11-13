@@ -87,14 +87,14 @@ crea@tpos:~$ cat /etc/passwd | cut -d":" -f1,6 | grep -e crea -e root
 root:/root
 crea:/home/crea
 ```
-**2. Hash des passwords**
+**2. Hash des passwords**  
 1/
 ```
 crea@tpos:~$ sudo cat /etc/shadow | grep crea
 [sudo] password for crea: 
 crea:$y$j9T$R9lfI7ISVv4LBzmg3Tr121$MtYnAp4OMgiIV0ITvQojlB7gtcvUE7ih7eNJY2xNuL8:20033:0:99999:7:::
 ```
-**3. Sudo**
+**3. Sudo**  
 1/
 ```
 crea@tpos:~$ sudo groupadd stronk_admins
@@ -196,7 +196,7 @@ etc, etc….
 ```
 
 ### II. Processes
-**1. Jouer avec la commande ps**
+**1. Jouer avec la commande ps**  
 1/
 ```
 crea@tpos:~$ ps -ef | grep bash
@@ -284,7 +284,7 @@ crea@tpos:~$ ps -ef --sort pid | head -2
 UID          PID    PPID  C STIME TTY          TIME CMD
 root           1       0  0 11:05 ?        00:00:00 /sbin/init
 ```
-**2. Parent, enfant, et meurtre**
+**2. Parent, enfant, et meurtre**  
 1/
 ```
 crea@tpos:~$ ps -ef | grep bash
@@ -321,7 +321,7 @@ crea@tpos:~$ ps -ef | grep sleep
 crea        1547       1  0 08:15 ?        00:00:00 sleep 9999
 ```
 ### III. Services
-**2. Analyser un service existant**
+**2. Analyser un service existant**  
 1/
 ```
 crea@tpos:~$ systemctl status ssh
@@ -374,8 +374,8 @@ Nov 13 09:24:56 tpos sshd[2175]: Accepted password for crea from 192.168.56.3 p>
 Nov 13 09:24:56 tpos sshd[2175]: pam_unix(sshd:session): session opened for use>
 Nov 13 09:24:56 tpos sshd[2175]: pam_env(sshd:session): deprecated reading of u>
 ```
-**3. Modification du service**
-*A. Configuration du service SSH*
+**3. Modification du service**  
+*A. Configuration du service SSH*  
 1/
 ```
 crea@tpos:~$ ls -l /etc/ssh | grep config
@@ -391,7 +391,7 @@ crea@tpos:~$ echo $RANDOM
 crea@tpos:/etc/ssh$ cat sshd_config | grep Port
 Port 32702
 #GatewayPorts no
-``
+```
 3/
 ```
 Connection to 192.168.56.20 closed.
@@ -421,7 +421,7 @@ Nécessite plus de configuration :
 PasswordAuthentication no
 PublicKeyAuthentication yes
 ```
-*B. Le service en lui-même*
+*B. Le service en lui-même*  
 4/
 ```
 crea@tpos:~$ sudo find / -name "ssh.service"
