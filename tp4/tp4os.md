@@ -1,5 +1,7 @@
 # TP 4
+
 **3. Vérification**  
+
 1/ Lister les périphériques de stockage branchés à la machine
 ```
 crea@debian:~$ lsblk
@@ -27,7 +29,9 @@ tmpfs                     5.0M  8.0K  5.0M   1% /run/lock
 /dev/mapper/bababoy-var   2.7G  316M  2.3G  13% /var
 tmpfs                     197M   52K  197M   1% /run/user/1000
 ```
+
 **4. Taille et inodes**  
+
 1/ Lister la quantité d'inodes disponibles sur chaque partition
 ```
 crea@debian:~$ df -i
@@ -52,8 +56,10 @@ crea@debian:~$ du -ls /usr/bin/bash
 crea@debian:~$ du -ls /etc/passwd
 4       /etc/passwd
 ```
-### II. Partitioning  
+## II. Partitioning  
+
 **1. d disk partou**  
+
 1/ Repérer le nom des nouveaux disques
 ```
 crea@debian:~$ lsblk
@@ -177,6 +183,7 @@ tmpfs                     5.0M  8.0K  5.0M   1% /run/lock
 tmpfs                     197M   52K  197M   1% /run/user/1000
 /dev/mapper/cat-meoooow   3.0G   54M  2.9G   2% /mnt/meow
 ```  
+
 **2. Grow !**    
 
 1/ Agrandir /home de +2G et le prouver
@@ -216,7 +223,9 @@ crea@debian:~$ df -h /dev/cat/meoooow
 Filesystem               Size  Used Avail Use% Mounted on
 /dev/mapper/cat-meoooow   20G  176M   20G   1% /mnt/meow
 ```
+
 **3. Montage automatique**    
+
 1/ Modifier le fichier /etc/fstab pour que la partition soit montée /mnt/meow automatiquement
 ```
 crea@debian:/dev/cat$ sudo nano /etc/fstab
@@ -252,7 +261,9 @@ mount: (hint) your fstab has been modified, but systemd still uses
 /media/cdrom0            : ignored
 /media/cdrom1            : ignored
 ```
+
 **4. Bonus : options de montage**    
+
 1/ Déterminer quelles options de montage permettrait d'améliorer le niveau de sécurité des données contenues sur une partition.
 
 Option "nosuid" : Empêche de la privilege escalation potentiel
