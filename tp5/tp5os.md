@@ -1,6 +1,6 @@
-# TP 5
-## Partie I : Compilation étou tavu
-### 0. Prérequis
+# TP 5  
+## Partie I : Compilation étou tavu  
+### 0. Prérequis  
 1/ Créer un répertoire de travail dans votre répertoire personnel
 ```
 crea@tpos:~$ pwd
@@ -11,8 +11,8 @@ crea@tpos:~/work$ pwd
 /home/crea/work
 crea@tpos:~/work$ 
 ```
-### I. Programme minimal
-**2. Analyse du programme compilé**
+### I. Programme minimal  
+**2. Analyse du programme compilé**  
 1/ Retrouvez à l'aide de readelf l'architecture pour laquelle le programme est compilé
 ```
 crea@tpos:~/work$ readelf -h hello1
@@ -110,7 +110,7 @@ Disassembly of section .text:
     1059:	8b 04 24             	mov    eax,DWORD PTR [esp]
     105c:	c3                   	ret
 ```
-**2. Librairie et compilation dynamique**
+**2. Librairie et compilation dynamique**  
 *C. Tracer les appels à des librairies*
 1/ Tracez à l'aide de la commande ldd les librairies appelées par… hello2  puis hello1 puis ls
 ```
@@ -162,7 +162,7 @@ find: ‘/run/user/1000/doc’: Permission denied
 crea@tpos:~/work$ file /usr/lib32/libc.so.6
 /usr/lib32/libc.so.6: ELF 32-bit LSB shared object, Intel 80386, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=b3f5646d25dc90cc34d2507f197561065c7e630c, for GNU/Linux 3.2.0, stripped
 ```
-**3. Compilation statique**
+**3. Compilation statique**  
 1/ Affichez le type des fichiers hello2 et hello3
 ```
 crea@tpos:~/work$ cp hello2.c hello3.c
@@ -179,7 +179,7 @@ crea@tpos:~/work$ du -h hello2
 crea@tpos:~/work$ du -h hello3
 728K	hello3
 ```
-**4. Compilation cross-platform**
+**4. Compilation cross-platform**  
 1/ Affichez l'architecture de votre CPU
 ```
 crea@tpos:~/work$ cat /proc/cpuinfo
@@ -232,7 +232,7 @@ crea@tpos:~/work$ ./hello4
 bash: ./hello4: cannot execute binary file: Exec format error
 ```
 ## Partie II : Crack des trucz
-**1. Install Ghidra**
+**1. Install Ghidra**  
 1/
 ```
 crea@tpos:~/work$ apt search ghidra
@@ -257,6 +257,61 @@ Saving to: ‘/etc/apt/trusted.gpg.d/kali-archive-keyring.asc’
 
 2024-11-18 18:10:00 (69.8 MB/s) - ‘/etc/apt/trusted.gpg.d/kali-archive-keyring.asc’ saved [3155/3155]
 ```
-4/
+**2. Patch manuel programme simple**  
+1/
+Fait avec Ghidra, changement JNZ en JZ
+```
+crea@tpos:~$ ./password_3.exe mauvaismdp
+Access granted! Spawning shell...
+$  
+```
+**4. Ptit chall maison**  
+1/ 
+```
+crea@tpos:~/work/ghidra_11.2.1_PUBLIC$ wget https://gitlab.com/it4lik/b1-os/-/raw/main/tp/5/kaddate_challenge
+--2024-11-20 11:03:02--  https://gitlab.com/it4lik/b1-os/-/raw/main/tp/5/kaddate_challenge
+Resolving gitlab.com (gitlab.com)... 172.65.251.78, 2606:4700:90:0:f22e:fbec:5bed:a9b9
+Connecting to gitlab.com (gitlab.com)|172.65.251.78|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16208 (16K) [application/octet-stream]
+Saving to: ‘kaddate_challenge.1’
+
+kaddate_challenge.1 100%[===================>]  15.83K  --.-KB/s    in 0.02s   
+
+2024-11-20 11:03:03 (706 KB/s) - ‘kaddate_challenge.1’ saved [16208/16208]
+```
+2/ readelf
+```
+crea@tpos:~/work/ghidra_11.2.1_PUBLIC$ readelf -h kaddate_challenge 
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x10c0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          14288 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         30
+  Section header string table index: 29
+```
+3/ Ghidra
+```
+crea@tpos:~$ ./kaddate_challenge3
+Can you be the first to send us a Message ?
+Enter you message: 
+a
+Congrats a, you are the first user (count=5).
+Flag: b1-os{PetitB1deviendraGrandPetitB1}
+```
 
 
