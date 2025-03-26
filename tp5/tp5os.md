@@ -9,7 +9,9 @@ crea@tpos:~$ mkdir work
 crea@tpos:~$ cd work
 crea@tpos:~/work$ pwd
 /home/crea/work
-crea@tpos:~/work$ 
+crea@tpos:~/work$
+![image](https://github.com/user-attachments/assets/f7c87cc6-93b2-4b1b-839c-e392c3e650ee)
+
 ```
 ### I. Programme minimal  
 **2. Analyse du programme compilé**  
