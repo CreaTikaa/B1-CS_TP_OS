@@ -10,9 +10,8 @@ crea@tpos:~$ cd work
 crea@tpos:~/work$ pwd
 /home/crea/work
 crea@tpos:~/work$
-![image](https://github.com/user-attachments/assets/f7c87cc6-93b2-4b1b-839c-e392c3e650ee)
-
 ```
+![image](https://github.com/user-attachments/assets/f7c87cc6-93b2-4b1b-839c-e392c3e650ee)
 ### I. Programme minimal  
 **2. Analyse du programme compilé**  
 1/ Retrouvez à l'aide de readelf l'architecture pour laquelle le programme est compilé
